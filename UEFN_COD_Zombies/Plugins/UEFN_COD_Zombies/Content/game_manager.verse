@@ -24,7 +24,7 @@ game_manager := class(creative_device):
     var ZombiesManager : creature_manager_device = creature_manager_device{}
 
     @editable
-    EndGmeDevice : end_game_device = end_game_device{}
+    EndGameDevice : end_game_device = end_game_device{}
 
     @editable var PropManipulator : prop_manipulator_device = prop_manipulator_device{}
 
@@ -36,7 +36,7 @@ game_manager := class(creative_device):
         PropManipulator.DestroyedEvent.Subscribe(OnBarrierRemove)
         AllPlayers := GetPlayspace().GetPlayers();
         if(Player := AllPlayers[0]):
-            GameUI.CreatePlayerUI(Player)
+            # GameUI.CreatePlayerUI(Player)
         for(Player : AllPlayers, FortCharacter := Player.GetFortCharacter[]):
             if(set PlayerMap[Player] = 0, WeaponTier := PlayerMap[Player]):
                 Print("Storing player")
@@ -50,11 +50,11 @@ game_manager := class(creative_device):
 
     OnBarrierRemove(Agent: agent) : void=
         set PlayerPoints -= 500 
-       GameUI.UpdatePointCount(PlayerPoints);
+    #    GameUI.UpdatePointCount(PlayerPoints);
 
     GivePlayerPoints(Points : int) : void = 
         set PlayerPoints += 100
-        GameUI.UpdatePointCount(PlayerPoints);
+        # GameUI.UpdatePointCount(PlayerPoints);
         Print("Updated Player Points:  {PlayerPoints}")
         
     # OnDamageTaken(Result : OnDamageTakenResult) : void=

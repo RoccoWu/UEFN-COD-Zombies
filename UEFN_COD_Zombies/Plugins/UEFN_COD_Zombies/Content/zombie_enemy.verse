@@ -33,13 +33,13 @@ zombie_enemy := class(creative_device):
     OnBegin<override>()<suspends>:void=
        ZombieInstance := zombie{}
       #ZombieInstance.health := 100 
-       ZombieInstance.TakeDamage(10)
-       GameManager.GivePlayerPoints(100)
-       Print("Zombie Taking Damage SHEEESH [GameManager.PlayerPoints]")
-
+       #ZombieInstance.TakeDamage(10)
+       #GameManager.GivePlayerPoints(100)
+       #Print("Zombie Taking Damage SHEEESH [GameManager.PlayerPoints]")
+#TODO CREATE ON HIT DAMAGE EVENT FOR ZOMBIE
     HandlePlayerHit(DamageResult : damage_result) : void =
         Target := DamageResult.Target
-        GameManager.GivePlayerPoints(100)
+        #GameManager.GivePlayerPoints(100)
         Print("Got Hit By Sheesher")
 
     
