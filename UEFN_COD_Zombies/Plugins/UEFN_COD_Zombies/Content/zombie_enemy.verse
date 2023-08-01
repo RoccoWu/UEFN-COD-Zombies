@@ -10,7 +10,6 @@ using { /UnrealEngine.com/Temporary/Diagnostics }
 
 # A Verse-authored creative device that can be placed in a level
 zombie := class():
-    
     var TotalHP : int = 100
     var CurrentHP : int = 100
     var GameUI : game_ui = game_ui{}
@@ -29,6 +28,9 @@ zombie := class():
 zombie_enemy := class(creative_device):
     @editable ZombieManager : creature_manager_device = creature_manager_device{}
     @editable GameManager : game_manager = game_manager{}
+    @editable RegularZombieHealth : int = 100
+    @editable ZombieHealthMultiplier : float = 1.5
+
     # Runs when the device is started in a running game
     OnBegin<override>()<suspends>:void=
        ZombieInstance := zombie{}
