@@ -70,49 +70,59 @@ Shop_device := class(creative_device):
         ExplosiveAmmoButton.InteractedWithEvent.Subscribe(BuyAmmoExplosive)
         ArrowAmmoButton.InteractedWithEvent.Subscribe(BuyAmmoArrow)
 
-
+    #SMG
     BuyItem1(Agent : agent): void= 
         if(PointsCounter.Points >= WeaponPrice1):
             if(Player := PointsCounter.Players[0]):
                 ItemRemover1.Remove(Player)
                 ItemGranter1.GrantItem(Player)
+                LightAmmoGranter.GrantItem(Player)
                 set PointsCounter.Points -= WeaponPrice1
                 PointsCounter.UIBox.SetText(PointsCounter.UIText(PointsCounter.Points))
         else:
             Print("Insufficient Points")
     
+    #M4
     BuyItem2(Agent : agent): void= 
         if(PointsCounter.Points >= WeaponPrice2):
             if(Player := PointsCounter.Players[0]):
                 ItemGranter2.GrantItem(Player)
+                MediumAmmoGranter.GrantItem(Player)
                 set PointsCounter.Points -= WeaponPrice2
                 PointsCounter.UIBox.SetText(PointsCounter.UIText(PointsCounter.Points))
         else:
             Print("Insufficient Points")
     
+
+    #Pump Shotgun
     BuyItem3(Agent : agent): void= 
         if(PointsCounter.Points >= WeaponPrice3):
             if(Player := PointsCounter.Players[0]):
                 ItemGranter3.GrantItem(Player)
+                ShellAmmoGranter.GrantItem(Player)
                 set PointsCounter.Points -= WeaponPrice3
                 PointsCounter.UIBox.SetText(PointsCounter.UIText(PointsCounter.Points))
         else:
             Print("Insufficient Points")
 
+
+    #Grenade Launcher
     BuyItem4(Agent : agent): void= 
         if(PointsCounter.Points >= WeaponPrice4):
             if(Player := PointsCounter.Players[0]):
                 ItemGranter4.GrantItem(Player)
+                ExplosiveAmmoGranter.GrantItem(Player)
                 set PointsCounter.Points -= WeaponPrice4
                 PointsCounter.UIBox.SetText(PointsCounter.UIText(PointsCounter.Points))
         else:
             Print("Insufficient Points")
 
-
+    #Automatic Sniper
     BuyItem5(Agent : agent): void= 
         if(PointsCounter.Points >= WeaponPrice5):
             if(Player := PointsCounter.Players[0]):
                 ItemGranter5.GrantItem(Player)
+                HeavyAmmoGranter.GrantItem(Player)
                 set PointsCounter.Points -= WeaponPrice5
                 PointsCounter.UIBox.SetText(PointsCounter.UIText(PointsCounter.Points))
         else:
