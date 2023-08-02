@@ -14,17 +14,15 @@ game_manager := class(creative_device):
     var PlayerPoints: int = 0;
     var GameUI : game_ui = game_ui{}
 
-    @editable
-    var StartingWeapon : []item_granter_device = array{}
+    @editable var StartingWeapon : []item_granter_device = array{}
 
-    @editable
-    var Sentries : []sentry_device = array{}
+    #@editable var Sentries : []sentry_device = array{}
     
-    @editable
-    var ZombiesManager : creature_manager_device = creature_manager_device{}
-
-    @editable
-    EndGameDevice : end_game_device = end_game_device{}
+    @editable var RoundTracker : tracker_device = tracker_device{}
+    @editable var ZombiesManager : creature_manager_device = creature_manager_device{}
+    @editable var ZombieEliminationTracker : tracker_device = tracker_device{}
+    
+    @editable EndGameDevice : end_game_device = end_game_device{}
 
     @editable var PropManipulator : prop_manipulator_device = prop_manipulator_device{}
 
@@ -60,4 +58,3 @@ game_manager := class(creative_device):
     # OnDamageTaken(Result : OnDamageTakenResult) : void=
     #     if(Result.DamageType = DamageType::Elimination):
     #         if(Player := Result.DamageInstigator):
-                

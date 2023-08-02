@@ -72,6 +72,7 @@ Shop_device := class(creative_device):
 
     #SMG
     BuyItem1(Agent : agent): void= 
+        #if(Player.):
         if(PointsCounter.Points >= WeaponPrice1):
             if(Player := PointsCounter.Players[0]):
                 ItemRemover1.Remove(Player)
